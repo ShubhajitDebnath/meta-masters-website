@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meta Masters QA Tech Consultancy — Manual Game Testing and Website Testing.">
+<title>Meta Masters | QA Tech Consultancy</title>
+<style>
+        :root
+        {
+                --bg:#070707;
+                --panel:#101010;
+                --panel2:#151515;
+                --red:#ed1118;
+                --cream:#f4e7d5;
+                --muted:#aaa6a0;
+                --line:#292929;
+                --max:1180px}
+        *
+        {
+                box-sizing:border-box;
+                margin:0;
+                padding:0
+        }
+        html
+        {
+                scroll-behavior:smooth;
+        }
+        body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 80% 10%,#2b0809,transparent 30%),var(--bg);color:#fff;line-height:1.6}
+        a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:auto;padding:0 24px}
+        nav{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+        .nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.mini-logo{width:46px;height:46px;border-radius:10px;object-fit:cover}.brand small{display:block;color:#999;font-size:10px;letter-spacing:2px}
+        .links{display:flex;gap:27px;color:#c9c5c0;font-size:14px}.links a:hover{color:var(--red)}.cta{background:var(--red);padding:11px 17px;border-radius:8px;font-weight:800}
+        .hero{padding:92px 0 82px;position:relative;overflow:hidden}.hero:after{content:"QA";position:absolute;right:-25px;top:50px;font-size:330px;font-weight:1000;color:rgba(237,17,24,.035);pointer-events:none}
+        .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}.badge{display:inline-block;border:1px solid #4a2424;background:#170909;color:#ff6b6f;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:1.5px;font-weight:800;margin-bottom:19px}
+        h1{font-size:clamp(44px,6vw,75px);line-height:1.02;letter-spacing:-3px}.red{color:var(--red)}.hero p{font-size:18px;color:var(--muted);max-width:690px;margin:24px 0 30px}
+        .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:9px;font-weight:850;border:1px solid var(--line)}.primary{background:var(--red);border-color:var(--red)}.ghost{background:#111}
+        .logo-card{background:#0c0c0c;border:1px solid #272727;border-radius:24px;padding:25px;box-shadow:0 25px 80px rgba(0,0,0,.45);text-align:center}.logo-card img{width:100%;max-width:440px;border-radius:15px;display:block;margin:auto}.logo-card p{color:#777;margin-top:13px;font-size:12px}
+        section{padding:85px 0}.head{margin-bottom:38px}.eyebrow{color:var(--red);font-size:11px;letter-spacing:2px;font-weight:900;text-transform:uppercase}.head h2{font-size:42px;line-height:1.1;margin-top:8px}.head p{color:var(--muted);max-width:650px;margin-top:12px}
+        .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#672225}.icon{font-size:25px;margin-bottom:18px}.card h3{font-size:19px;margin-bottom:8px}.card p{color:var(--muted);font-size:14px}
+        .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}.about-box{border:1px solid #3b1b1d;background:linear-gradient(145deg,#18090a,#0c0c0c);padding:34px;border-radius:20px}.about-box h2{font-size:36px;line-height:1.15;margin:8px 0 14px}.about-box p,.about-copy p{color:var(--muted)}.ticks{display:grid;gap:13px;margin-top:22px}.tick{display:flex;gap:10px}.tick b{color:var(--red)}
+        .project-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.project{border:1px solid var(--line);background:#101010;border-radius:14px;padding:20px}.project span{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:1.5px}.project h3{margin-top:7px;font-size:16px}
+        .process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{border-top:2px solid var(--red);padding:20px;background:#101010;border-radius:0 0 14px 14px}.num{color:var(--red);font-weight:900;font-size:12px}.step h3{margin:18px 0 7px}.step p{color:var(--muted);font-size:14px}
+        .contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px}.contact-box,.form{border:1px solid var(--line);border-radius:18px;background:#101010;padding:29px}.contact-box h2{font-size:32px;line-height:1.15}.contact-box p{color:var(--muted);margin-top:10px}.info{display:grid;gap:17px;margin-top:25px}.info small{display:block;color:#777;font-size:10px;letter-spacing:1.4px}.info strong{font-size:15px}
+        .social-placeholder{margin-top:25px;border:1px dashed #444;padding:14px;border-radius:10px;color:#777;font-size:12px}
+        form{display:grid;gap:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}label{font-size:11px;color:#999;display:block;margin-bottom:5px}input,select,textarea{width:100%;background:#090909;border:1px solid #303030;color:#fff;border-radius:8px;padding:12px;font:inherit;outline:none}textarea{min-height:120px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--red)}
+        footer{border-top:1px solid var(--line);padding:30px 0;color:#777;font-size:12px}.foot{display:flex;justify-content:space-between}
+        .toast{display:none;position:fixed;bottom:20px;right:20px;background:#181818;border:1px solid #4b2022;padding:14px 18px;border-radius:9px;z-index:100}
+        @media(max-width:850px){.links{display:none}.hero-grid,.about,.contact{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.project-grid,.process{grid-template-columns:1fr 1fr}.hero{padding-top:65px}}
+        @media(max-width:560px){.grid3,.project-grid,.process,.two{grid-template-columns:1fr}.container{padding:0 17px}.hero h1{letter-spacing:-2px}.head h2{font-size:34px}.foot{display:block}.foot div+div{margin-top:8px}}
+</style>
+</head>
+<body>
+<nav><div class="container nav">
+<a class="brand" href="#home"><img class="mini-logo" src="WhatsApp Image 2026-09-11 at 3.00.00 PM.jpeg"><span>Meta Masters<small>QA TECH CONSULTANCY</small></span></a>
+<div class="links"><a href="#services">Services</a><a href="#about">About Us</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+<a class="cta" href="#contact">Start a Project</a>
+</div></nav>
+
+<section class="hero" id="home"><div class="container hero-grid">
+<div><div class="badge">MANUAL QA • GAME TESTING • WEB TESTING</div>
+<h1>We find the problems<br><span class="red">before your users do.</span></h1>
+<p>Meta Masters QA Tech Consultancy provides focused manual testing for games and websites. We test deeply, report clearly and stay available when your product needs us.</p>
+<div class="actions"><a class="btn primary" href="#contact">Discuss Your Project →</a><a class="btn ghost" href="#services">View Our Services</a></div></div>
+<div class="logo-card">
+        <img src="WhatsApp Image 2026-09-11 at 3.00.00 PM.jpeg">
+        <p>Meta Masters QA Tech Consultancy</p>
+</div>
+</div>
+</section>
+<section id="services"><div class="container"><div class="head"><div class="eyebrow">Our Services</div><h2>Testing built around real users.</h2><p>We cover the areas that matter most to product quality, usability and release confidence.</p></div>
+<div class="grid3">
+<div class="card"><div class="icon">🎮</div><h3>Manual Game Testing</h3><p>Gameplay, mechanics, UI, controls, progression, economy, multiplayer flows, edge cases and overall player experience.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Website Testing</h3><p>Functional, UI, usability, navigation, forms, responsive layouts, browser compatibility and user-flow testing.</p></div>
+<div class="card"><div class="icon">🐞</div><h3>Bug & Defect Reporting</h3><p>Clear reproduction steps, expected vs actual results, severity, environment details and supporting evidence.</p></div>
+<div class="card"><div class="icon">🔁</div><h3>Regression Testing</h3><p>Re-test fixed issues and validate existing features after updates, patches, new builds and releases.</p></div>
+<div class="card"><div class="icon">📱</div><h3>Device & Platform QA</h3><p>Testing across supported devices and screen sizes to identify compatibility and presentation problems.</p></div>
+<div class="card"><div class="icon">🚀</div><h3>Release QA</h3><p>Smoke checks, build verification, release candidate validation and final quality checks before launch.</p></div>
+</div></div></section>
+
+<section id="about"><div class="container about">
+<div class="about-box"><div class="eyebrow">About Meta Masters</div><h2>Serious testing. Clear reporting. Reliable support.</h2><p>Meta Masters QA Tech Consultancy is a QA-focused team committed to delivering proper, structured and practical testing. We believe quality comes from exploring products from multiple angles and actively looking for the problems users may encounter.</p><div class="ticks"><div class="tick"><b>✓</b> Thorough manual testing</div><div class="tick"><b>✓</b> Clear and actionable bug reports</div><div class="tick"><b>✓</b> Flexible support when you need us</div><div class="tick"><b>✓</b> Quality-focused approach from test to retest</div></div></div>
+<div class="about-copy"><div class="eyebrow">Our Team</div><h2 style="font-size:40px;line-height:1.1;margin:8px 0 16px">A team that looks for what others miss.</h2><p>Our team is built around attention to detail, curiosity and hands-on testing experience. We approach every build with a tester's mindset: explore different scenarios, challenge expected behaviour, reproduce issues and communicate findings in a way developers can act on.</p><p style="margin-top:16px">Whether you need testing for a new build, a website launch, a feature update or ongoing QA support, we aim to be a dependable extension of your team and remain available throughout the testing cycle.</p></div>
+</div></section>
+
+<section id="projects"><div class="container"><div class="head"><div class="eyebrow">Selected QA Experience</div><h2>Products we've worked with.</h2><p>Project names shown here represent QA experience and can be expanded with case studies or client-approved details later.</p></div>
+<div class="project-grid"><div class="project"><span>Game QA</span><h3>MaskGun</h3></div><div class="project"><span>Game QA</span><h3>Tower Conquest</h3></div><div class="project"><span>Game QA</span><h3>Silly Royale</h3></div><div class="project"><span>Roblox QA</span><h3>Showdown</h3></div></div></div></section>
+
+<section id="process"><div class="container"><div class="head"><div class="eyebrow">How We Work</div><h2>From build to better build.</h2></div>
+<div class="process"><div class="step"><div class="num">01 / UNDERSTAND</div><h3>Scope</h3><p>Understand requirements, platforms, build and testing goals.</p></div><div class="step"><div class="num">02 / EXPLORE</div><h3>Test</h3><p>Run planned scenarios while actively exploring edge cases.</p></div><div class="step"><div class="num">03 / REPORT</div><h3>Document</h3><p>Report reproducible issues with useful evidence and priority.</p></div><div class="step"><div class="num">04 / VERIFY</div><h3>Retest</h3><p>Validate fixes and perform regression checks before release.</p></div></div></div></section>
+
+<section id="contact"><div class="container"><div class="head"><div class="eyebrow">Let's Work Together</div><h2>Have a product that needs testing?</h2><p>Tell us what you are building and what kind of QA support you need.</p></div>
+<div class="contact"><div class="contact-box"><h2>Start a QA conversation.</h2><p>We're available for project-based testing, ongoing QA support and release-focused testing.</p><div class="info"><div><small>PHONE / WHATSAPP</small><strong>+91 90643 70408</strong></div><div><small>LOCATION</small><strong>Alipurduar, West Bengal, India</strong></div><div><small>EMAIL</small><strong>Email will be added soon</strong></div></div><div class="social-placeholder">Social & professional links will be added here later.</div></div>
+<div class="form"><form id="form"><div class="two"><div><label>YOUR NAME</label><input required placeholder="Your name"></div><div><label>COMPANY</label><input placeholder="Company name"></div></div><div class="two"><div><label>EMAIL</label><input type="email" required placeholder="you@company.com"></div><div><label>SERVICE</label><select><option>Manual Game Testing</option><option>Website Testing</option><option>Regression Testing</option><option>Device & Platform QA</option><option>Release QA</option></select></div></div><div><label>PROJECT DETAILS</label><textarea placeholder="Tell us about your product, platform, build and testing requirements..."></textarea></div><button class="btn primary" type="submit" style="cursor:pointer">Request a Consultation →</button></form></div></div></div></section>
+
+<footer><div class="container foot"><div>© 2026 Meta Masters QA Tech Consultancy. All rights reserved.</div><div>Alipurduar, West Bengal, India</div></div></footer>
+<div class="toast" id="toast">Demo submission received. Connect this form to your email/CRM before launch.</div>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',3500);this.reset();});
+</script>
+</body>
+</html>
